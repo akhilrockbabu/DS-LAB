@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-int vertex[20],cost[20][20],n,t[20][20],mincost=0,near[10],min;
+int cost[20][20],n,t[20][20],mincost=0,near[10],min;
 int main()
 {
 	int i,j,b,k=0,l=0,c=1,p,q;
@@ -67,19 +67,6 @@ int main()
 		printf("\n\n");
 	}
 
-
-/*	//display cost matrix after setting the non exiting edgecost  to high value
-	for(i=1;i<=n;i++)
-	{
-		for(j=1;j<=n;j++)
-		{
-			printf("%d      ",cost[i][j]);
-		}
-		printf("\n\n");
-	}*/
-
-
-	//setting near
 	for(i=1;i<=n;i++)
 	{
 		if(cost[i][l]<cost[i][k])
@@ -140,3 +127,4 @@ int main()
 	printf("mincost=%d      ",mincost);
 	return 0;
 }
+
