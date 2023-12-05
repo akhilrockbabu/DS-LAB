@@ -1,17 +1,17 @@
 #include<stdio.h>
 #include<stdlib.h>
-int s[10],visited[10],i,j,n,adj[20][20],v,top=0,item;
-void push(int v);
-int pop();
-void push(int v)
+int q[10],visited[10],i,j,n,adj[20][20],v,front=1,rear=0,item;
+void insert(int v);
+int del();
+void insert(int v)
 {
-	top++;
-	s[top]=v;
+	rear++;
+	q[rear]=v;
 }
-int pop()
+int del()
 {
-	v=s[top];
-	top--;
+	v=q[front];
+	front++;
 	return v;
 }
 int main()
@@ -32,17 +32,17 @@ int main()
 			printf("\n");
 		}
 	}
-	push(1);
+	insert(1);
 	printf("Spanning tree edges are:\n");
 	for(i=1;i<=n;++i)
 	{
-		item=pop();
+		item=del();
 		visited[item]=1;
 		for(j=i+1;j<=n;j++)
 		{
 			if(adj[item][j]==1 && visited[j]==0)
 			{
-				push(j);
+				insert(j);
 				visited[j]=1;
 				printf("edge(%d,%d)\n",item,j);
 			}
@@ -82,7 +82,7 @@ adj[5][5]:0
 Spanning tree edges are:
 edge(1,2)
 edge(1,3)
-edge(3,4)
+edge(2,4)
 edge(2,5)
 */
 			
