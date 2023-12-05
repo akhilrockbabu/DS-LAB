@@ -28,6 +28,7 @@ int main()
 			}
 		}
 	}
+	
 	k=1;
 	l=2;
 	mincost=cost[1][2];               //setting mincost
